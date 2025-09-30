@@ -1,0 +1,41 @@
+# 人脸识别系统配置文件
+
+# 摄像头设置
+camera:
+  device_id: 0
+  width: 640
+  height: 480
+  fps: 30
+
+# 人脸检测设置
+face_detection:
+  model_path: "data/models/haarcascade_frontalface_default.xml"
+  min_face_size: 50
+  scale_factor: 1.05
+  min_neighbors: 6
+
+# 人脸识别设置
+face_recognition:
+  tolerance: 100  # LBPH的置信度阈值，置信度越低越好，所以设置较高阈值
+  model_path: "data/models/face_recognizer.yml"
+  face_size: 150
+  min_samples: 10
+
+# 数据库设置
+database:
+  path: "database/face_recognition.db"
+  backup_path: "database/backup/"
+
+# 训练设置
+training:
+  samples_per_person: 25
+  face_size: 150
+  encoding_method: "lbph"
+  data_augmentation: true
+
+# 界面设置
+ui:
+  window_width: 1200
+  window_height: 800
+  theme: "light"
+  recognition_interval: 0.5  # 识别间隔（秒）
